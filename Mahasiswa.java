@@ -1,10 +1,10 @@
-public class Ensiklopedia extends BukuReferensi {
-    public Ensiklopedia(String judul, String pengarang, String isbn, String kategori, boolean tersedia) {
-        super(judul, pengarang, isbn, kategori, tersedia);
+public class Mahasiswa extends AnggotaPerpustakaan {
+    public Mahasiswa(String idAnggota, String nama, String email) {
+        super(idAnggota, nama, email, "Mahasiswa");
     }
 
     @Override
-    public void informasiReferensi() {
-        System.out.println("Informasi ensiklopedia...");
-    }
+    public void getInfo() {
+        System.out.println("Nama: " + nama + ", Nomor Anggota: " + idAnggota + ", Email: " + email + ", Tipe Keanggotaan: " + tipeKeanggotaan);
+    }
 }
