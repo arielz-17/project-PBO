@@ -1,22 +1,25 @@
-public class BukuFiksi extends Buku {
-    private String subKategori;
+abstract class AnggotaPerpustakaan implements Keanggotaan {
+    protected String idAnggota;
+    protected String nama;
+    protected String email;
+    protected String tipeKeanggotaan;
 
-    public BukuFiksi(String judul, String pengarang, String isbn, String kategori, boolean tersedia, String subKategori) {
-        super(judul, pengarang, isbn, kategori, tersedia);
-        this.subKategori = subKategori;
+    public AnggotaPerpustakaan(String idAnggota, String nama, String email, String tipeKeanggotaan) {
+        this.idAnggota = idAnggota;
+        this.nama = nama;
+        this.email = email;
+        this.tipeKeanggotaan = tipeKeanggotaan;
     }
 
-    public String getSubKategori() {
-        return subKategori;
-    }
+    public abstract void getInfo();
 
-    public void setSubKategori(String subKategori) {
-        this.subKategori = subKategori;
+    @Override
+    public void daftarKeanggotaan() {
+        System.out.println("Anggota " + nama + " dengan ID " + idAnggota + " telah terdaftar.");
     }
 
     @Override
-    public void deskripsiBuku() {
-        super.deskripsiBuku();
-        System.out.println("Sub Kategori: " + subKategori);
-    }
+    public void hapusKeanggotaan() {
+        System.out.println("Anggota " + nama + " dengan ID " + idAnggota + " telah dihapus.");
+    }
 }
