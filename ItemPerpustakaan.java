@@ -1,7 +1,15 @@
-public abstract class BukuReferensi extends Buku {
-    public BukuReferensi(String judul, String pengarang, String isbn, String kategori, boolean tersedia) {
-        super(judul, pengarang, isbn, kategori, tersedia);
+abstract class ItemPerpustakaan {
+    protected String id;
+    protected String judul;
+    protected String pengarang;
+    protected String kategori;
+
+    public ItemPerpustakaan(String id, String judul, String pengarang, String kategori) {
+        this.id = id;
+        this.judul = judul;
+        this.pengarang = pengarang;
+        this.kategori = kategori;
     }
 
-    public abstract void informasiReferensi();
+    public abstract void getInfo();
 }
