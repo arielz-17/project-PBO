@@ -18,6 +18,12 @@ public class PengelolaPerpustakaan {
         System.out.println("Buku berhasil ditambahkan.");
     }
 
+    public void tambahBuku(String id, String judul, String pengarang, String ISBN, String kategori) {
+        Buku buku = new Buku(id, judul, pengarang, ISBN, kategori);
+        daftarBuku.add(buku);
+        System.out.println("Buku berhasil ditambahkan.");
+    }
+
     public void hapusBuku(String id) {
         Buku bukuUntukDihapus = null;
         for (Buku buku : daftarBuku) {
@@ -45,6 +51,19 @@ public class PengelolaPerpustakaan {
     }
 
     public void tambahAnggota(AnggotaPerpustakaan anggota) {
+        daftarAnggota.add(anggota);
+        System.out.println("Anggota berhasil ditambahkan.");
+    }
+
+    public void tambahAnggota(String idAnggota, String nama, String email, String tipeKeanggotaan) {
+        AnggotaPerpustakaan anggota;
+        if (tipeKeanggotaan.equalsIgnoreCase("Siswa")) {
+            anggota = new Siswa(idAnggota, nama, email);
+        } else if (tipeKeanggotaan.equalsIgnoreCase("Mahasiswa")) {
+            anggota = new Mahasiswa(idAnggota, nama, email);
+        } else {
+            anggota = new Umum(idAnggota, nama, email);
+        }
         daftarAnggota.add(anggota);
         System.out.println("Anggota berhasil ditambahkan.");
     }
@@ -102,18 +121,20 @@ public class PengelolaPerpustakaan {
         }
     }
 
-
     public void kembalikanBuku(String idTransaksi, Date tanggalKembali) {
+        boolean ditemukan = false;
         for (TransaksiPeminjaman transaksi : daftarTransaksi) {
             if (transaksi.getIdTransaksi().equals(idTransaksi)) {
                 transaksi.prosesPengembalian(tanggalKembali);
                 System.out.println("Buku berhasil dikembalikan.");
-                return;
+                ditemukan = true;
+                break;
             }
         }
-        System.out.println("Transaksi tidak ditemukan.");
+        if (!ditemukan) {
+            System.out.println("Transaksi tidak ditemukan.");
+        }
     }
-
 
     public void tampilkanDaftarTransaksi() {
         for (TransaksiPeminjaman transaksi : daftarTransaksi) {
@@ -121,4 +142,3 @@ public class PengelolaPerpustakaan {
         }
     }
 }
-
