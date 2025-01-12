@@ -5,5 +5,7 @@ public class KategoriBuku {
 
     public static boolean isValidKategori(String kategori) {
         return kategori.equals(FIKSI) || kategori.equals(NON_FIKSI) || kategori.equals(REFERENSI);
+        
     }
+    
 }
