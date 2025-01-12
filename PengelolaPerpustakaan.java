@@ -74,7 +74,9 @@ public class PengelolaPerpustakaan {
             if (anggota.idAnggota.equals(idAnggota)) {
                 anggotaUntukDihapus = anggota;
                 break;
+                
             }
+            
         }
         if (anggotaUntukDihapus != null) {
             daftarAnggota.remove(anggotaUntukDihapus);
@@ -82,15 +84,18 @@ public class PengelolaPerpustakaan {
         } else {
             System.out.println("Anggota tidak ditemukan.");
         }
+        
     }
 
     public List<AnggotaPerpustakaan> getDaftarAnggota() {
         return daftarAnggota;
+        
     }
 
     public void tampilkanDaftarAnggota() {
         for (AnggotaPerpustakaan anggota : daftarAnggota) {
             anggota.getInfo();
+            
         }
     }
 
@@ -123,6 +128,7 @@ public class PengelolaPerpustakaan {
 
     public void kembalikanBuku(String idTransaksi, Date tanggalKembali) {
         boolean ditemukan = false;
+        
         for (TransaksiPeminjaman transaksi : daftarTransaksi) {
             if (transaksi.getIdTransaksi().equals(idTransaksi)) {
                 transaksi.prosesPengembalian(tanggalKembali);
@@ -131,6 +137,7 @@ public class PengelolaPerpustakaan {
                 break;
             }
         }
+        
         if (!ditemukan) {
             System.out.println("Transaksi tidak ditemukan.");
         }
