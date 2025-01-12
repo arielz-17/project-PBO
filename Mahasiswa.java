@@ -1,6 +1,8 @@
 public class Mahasiswa extends AnggotaPerpustakaan {
+    
     public Mahasiswa(String idAnggota, String nama, String email) {
         super(idAnggota, nama, email, "Mahasiswa");
+        
     }
 
     
