@@ -11,22 +11,28 @@ public class Buku extends ItemPerpustakaan {
         }
         this.ISBN = ISBN;
         this.status = "tersedia";
+        
     }
 
     public String getISBN() {
         return ISBN;
+        
     }
 
     public String getStatus() {
         return status;
+        
     }
 
     public void setStatus(String status) {
         this.status = status;
+        
     }
 
     @Override
     public void getInfo() {
         System.out.println("Judul: " + judul + ", Pengarang: " + pengarang + ", ISBN: " + ISBN + ", Kategori: " + kategori + ", Status: " + status);
+        
     }
+    
 }
