@@ -3,8 +3,10 @@ public class Siswa extends AnggotaPerpustakaan {
         super(idAnggota, nama, email, "Siswa");
     }
 
+    
     @Override
     public void getInfo() {
         System.out.println("Nama: " + nama + ", Nomor Anggota: " + idAnggota + ", Email: " + email + ", Tipe Keanggotaan: " + tipeKeanggotaan);
     }
+    
 }
